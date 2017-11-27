@@ -80,7 +80,7 @@ dnl Misc headers.
 AC_CHECK_HEADER([getopt.h],[],[AC_MSG_ERROR([failed to find the required header file getopt.h])])
 AC_CHECK_HEADER([sysexits.h],[],[AC_MSG_ERROR([failed to find the required header file sysexits.h])])
 dnl Linux headers.
-AC_CHECK_HEADER([linux/input.h],[],[AC_MSG_ERROR([failed to find the required header file linux/input.h])])   dnl
+AC_CHECK_HEADER([linux/input-event-codes.h],[],[AC_MSG_ERROR([failed to find the required header file linux/input-event-codes.h])])   dnl
 AC_CHECK_HEADER([linux/limits.h],[],[AC_MSG_ERROR([failed to find the required header file linux/limits.h])]) dnl
 AC_CHECK_HEADER([linux/types.h],[],[AC_MSG_ERROR([failed to find the required header file linux/types.h])])   dnl
 AC_CHECK_HEADER([linux/uinput.h],[],[AC_MSG_ERROR([failed to find the required header file linux/uinput.h])]) dnl
@@ -91,11 +91,11 @@ dnl The absolute path to the header file linux/input.h is needed by
 dnl event_name_to_code.h.sh, evkey_code_to_name.h.sh and evkey_type.h.sh
 dnl in order for them to generate the header files event_name_to_code.h,
 dnl evkey_code_to_name.h and evkey_type.h respectively
-AX_ABSOLUTE_HEADER(linux/input.h)
-if test "x$gl_cv_absolute_linux_input_h" = "x" ; then
-    AC_MSG_ERROR([failed to find the absolute path to header file linux/input.h])
+AX_ABSOLUTE_HEADER(linux/input-event-codes.h)
+if test "x$gl_cv_absolute_linux_input_event_codes_h" = "x" ; then
+    AC_MSG_ERROR([failed to find the absolute path to header file linux/input-event-codes.h])
 fi
-AC_SUBST(ABSOLUTE_LINUX_INPUT_H, $gl_cv_absolute_linux_input_h)
+AC_SUBST(ABSOLUTE_LINUX_INPUT_H, $gl_cv_absolute_linux_input_event_codes_h)
 
 PKG_CHECK_MODULES(LIBUDEV, [libudev >= 136])
 
