@@ -61,7 +61,7 @@ case "${ACTION}" in
             if test ! "x${lircd_uinput_disable}" = "xtrue" ; then
                 touch "/var/run/lirc/lircd-${devname_instance}.uinput"
             fi
-            daemon="${daemon} --release=_UP"
+            daemon="${daemon} --release=_KEYUP"
             daemon="${daemon} --output=/var/run/lirc/lircd-${devname_instance}"
             daemon="${daemon} --pidfile=/var/run/lirc/lircd-${devname_instance}.pid"
             daemon="${daemon} ${lircd_conf}"
